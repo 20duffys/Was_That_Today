@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
-import About from './About.js';
-import './App.css';
+import '../stylesheets/App.css';
+import axios from '../utils/helper.js'
+
 
 class App extends Component {
+
+
+  productSearch(){
+      axios.search().then((res) => {
+        console.log(res.data);
+      })
+
+  }
+
   render() {
     return (
       <div className="App">
-        <About />
-        <p>App Component</p>
+        <button onClick={this.productSearch.bind(this)}>Click me</button>
       </div>
     );
   }
