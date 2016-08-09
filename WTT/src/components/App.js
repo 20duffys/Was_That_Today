@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../stylesheets/App.css';
 import axios from '../utils/helper.js'
 
-
 class App extends Component {
 
 
