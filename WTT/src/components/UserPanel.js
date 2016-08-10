@@ -1,7 +1,8 @@
-
 // By Sam Duffy
 import React, { Component } from 'react';
 import {Link} from 'react-router';
+import Search from "./Search";
+
 
 function UserPanel (props) {
   return(
