@@ -8,12 +8,13 @@ class NewUser extends Component {
 
   handleNewUser(event){
     event.preventDefault();
-    let userName = event.target.elements[0].value;
+    let email = event.target.elements[0].value;
     let password = event.target.elements[1].value;
     //only go to the page if the username value isn't null or the length isn't zero
     //TODO need to do user auth and validation with firebase
-    if(userName !== null || userName.length !== 0){
-      const path = `/login/userPanel/${userName}`
+    if((email !== null || email.length !== 0) && (password !== null || password.length !== 0)){
+      //create user with email and password and store them into firebase
+      const path = `/login/userPanel/${email}`
       browserHistory.push(path);
     }
   }
