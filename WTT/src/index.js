@@ -1,3 +1,7 @@
+/*
+Written by Joe, Austin, Sam
+*/
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
