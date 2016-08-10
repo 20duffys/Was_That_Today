@@ -7,6 +7,9 @@ import {browserHistory} from 'react-router'
 import '../stylesheets/Header.css';
 
 class Header extends Component {
+  constructor(){
+    super();
+  }
 
   handleLogin(){
     browserHistory.push("/login");
@@ -16,17 +19,20 @@ class Header extends Component {
     browserHistory.push("/about")
   }
 
+  handleHome(){
+    browserHistory.push("/")
+  }
+
   render(){
     return(
       <div>
         <header className='header'>
-          <button className='logoBtnArea'>
+          <button className='logoBtnArea' onClick={this.handleHome.bind(this)}>
             <img className='logo' height="45" width="45" role="presentation" src='gift.png'/>
           </button>
           <h1>Was That Today?</h1>
           <button className="aboutButton" onClick={this.handleAbout.bind(this)}>About</button>
           <button className="loginButton" onClick={this.handleLogin.bind(this)}>Login</button>
-          <button className="aboutButton" onClick={this.handleAbout.bind(this)}>About</button>
         </header>
       </div>
     )

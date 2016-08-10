@@ -6,6 +6,12 @@ import "../stylesheets/Login.css"
  Written by Austin
 */
 class Login extends Component {
+  constructor(){
+    super();
+    this.state = {
+      user: "Guest"
+    };
+  }
 
   handleLogin(event){
     event.preventDefault();
@@ -14,7 +20,9 @@ class Login extends Component {
     //only go to the page if the username value isn't null or the length isn't zero
     //TODO need to do user auth and validation with firebase
     if(email !== null || email.length !== 0){
-      const path = `/login/userPanel/${email}/`
+      this.setState({user: email});
+      console.log("State: ", this.state);
+      const path = `/userPanel/${email}/`
       browserHistory.push(path);
     }
   }
@@ -28,7 +36,7 @@ class Login extends Component {
           <label>Password: </label>
           <input type="password" placeholder="password"></input>
           <button type="submit">Login</button>
-          <Link to="/login/userPanel/Guest">Login as Guest</Link>
+          <Link to="/userPanel/Guest">Login as Guest</Link>
         </form>
           <p>Don't have an account <Link to="login/newUser">create account</Link></p>
         {this.props.children}
