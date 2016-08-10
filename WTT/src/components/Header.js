@@ -12,6 +12,10 @@ class Header extends Component {
     browserHistory.push("/login");
   }
 
+  handleAbout(){
+    browserHistory.push("/about")
+  }
+
   render(){
     return(
       <div>
@@ -21,6 +25,7 @@ class Header extends Component {
           </button>
           <h1>Was That Today?</h1>
           <button className="loginButton" onClick={this.handleLogin.bind(this)}>Login</button>
+          <button className="aboutButton" onClick={this.handleAbout.bind(this)}>About</button>
         </header>
       </div>
     )
