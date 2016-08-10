@@ -1,0 +1,44 @@
+.header {
+  margin-top: 3px;
+  background: rgba(144, 208, 151, 1);
+  height: 80px;
+}
+
+.loginBtnArea {
+  display: inline;
+  height: 80px;
+  background: rgba(144, 208, 151, 1);
+  border-top: 3px rgba(144, 208, 151, 1);
+  border-right: 3px solid white;
+  border-bottom: 3px rgba(144, 208, 151, 1);
+  border-left: 3px rgba(144, 208, 151, 1);
+}
+
+.logo {
+  margin: 15px;
+
+}
+
+h1 {
+  position: absolute;
+  display: inline;
+  padding: 10px;
+  margin: 10px;
+  color: white;
+  text-shadow: 0px 0px 7px rgba(150, 150, 150, 1);
+}
+
+.loginButton {
+  float: right;
+  background: rgba(144, 208, 151, 1);
+  text-shadow: 0px 0px 7px rgba(150, 150, 150, 1);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  height: 80px;
+  width: 100px;
+  border-top: 3px rgba(144, 208, 151, 1);
+  border-right: 3px rgba(144, 208, 151, 1);
+  border-bottom: 3px rgba(144, 208, 151, 1);
+  border-left: 3px solid white;
+}
