@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import {Link, browserHistory} from 'react-router';
-import "../stylesheets/Login.css"
+import {browserHistory} from 'react-router';
 
 /*
  Written by Austin
 */
-class Login extends Component {
+class NewUser extends Component {
 
-  handleLogin(event){
+  handleNewUser(event){
     event.preventDefault();
     let userName = event.target.elements[0].value;
     let password = event.target.elements[1].value;
@@ -21,20 +20,17 @@ class Login extends Component {
 
   render(){
     return(
-      <div id='login'>
-        <form onSubmit={(event) => this.handleLogin(event)}>
+      <div id='new-user'>
+        <form onSubmit={(event) => this.handleNewUser(event)}>
           <label>UserName: </label>
           <input type="text"></input>
           <label>Password: </label>
           <input type="password"></input>
-          <button type="submit">Login</button>
-          <Link to="/login/userPanel/Guest">Login as Guest</Link>
+          <button type="submit">Create Account</button>
         </form>
-          <p>Don't have an account <Link to="login/newUser">create account</Link></p>
-        {this.props.children}
       </div>
     )
   }
 }
 
-export default Login
+export default NewUser

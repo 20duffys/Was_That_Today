@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <div className="App">
         <button onClick={this.productSearch.bind(this)}>Click me</button>
-        <Link to="/login">Login</Link>
+        {this.props.children}
       </div>
     );
   }
