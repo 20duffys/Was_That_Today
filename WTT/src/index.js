@@ -10,6 +10,7 @@ import NewUser from './components/NewUser.js'
 import UserPanel from "./components/UserPanel"
 import Login from './components/Login';
 import Header from './components/Header';
+import About from './components/About';
 import './stylesheets/index.css';
 
 
@@ -21,6 +22,7 @@ ReactDOM.render(
         <Route path="/login" component={Login}></Route>
         <Route path="/login/newUser" component={NewUser}></Route>
         <Route path="/login/userPanel/:user" component={UserPanel}></Route>
+        <Route path="/about" component={About}></Route>
       </Route>
     </Router>
   </div>,

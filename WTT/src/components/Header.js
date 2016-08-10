@@ -1,5 +1,5 @@
 /*
-Written by Joe, edited by Austin
+Written by Joe, edited by Austin and Sam
 */
 
 import React, { Component } from 'react';
@@ -12,6 +12,10 @@ class Header extends Component {
     browserHistory.push("/login");
   }
 
+  handleAbout(){
+    browserHistory.push("/about")
+  }
+
   render(){
     return(
       <div>
@@ -20,6 +24,7 @@ class Header extends Component {
             <img className='logo' height="45" width="45" role="presentation" src='gift.png'/>
           </button>
           <h1>Was That Today?</h1>
+          <button className="aboutButton" onClick={this.handleAbout.bind(this)}>About</button>
           <button className="loginButton" onClick={this.handleLogin.bind(this)}>Login</button>
         </header>
       </div>
