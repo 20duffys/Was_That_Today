@@ -21,6 +21,7 @@ class App extends Component {
         <button onClick={this.productSearch.bind(this)}>Click me</button>
         <Link to="/login">Login</Link>
         <About />
+        {this.props.children}
       </div>
     );
   }
