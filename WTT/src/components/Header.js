@@ -10,7 +10,7 @@ class Header extends Component {
     return(
       <div>
         <header className='header'>
-          <button className='loginBtnArea'>
+          <button className='logoBtnArea'>
             <img className='logo' height="45" width="45" role="presentation" src='gift.png'/>
           </button>
           <h1>Was That Today?</h1>
