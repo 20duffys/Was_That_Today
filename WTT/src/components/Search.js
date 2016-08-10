@@ -8,7 +8,7 @@ import axios from '../utils/helper.js'
 class Search extends Component {
 
   constructor(props) {
-    super(props) {
+    super(props);
       this.state = {
         itemImgUrl: "",
         itemName: "",
@@ -16,8 +16,8 @@ class Search extends Component {
         itemBuyUrl: "",
         responseData: []
       }
-    }
   }
+
 
   productSearch(event) {
     event.preventDefault();
