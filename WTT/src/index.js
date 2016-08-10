@@ -7,6 +7,7 @@ import NewUser from './components/NewUser';
 import UserPanel from "./components/UserPanel";
 import Login from './components/Login';
 import Header from './components/Header';
+import About from './components/About';
 import './stylesheets/index.css';
 
 
