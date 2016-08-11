@@ -1,5 +1,8 @@
-import React, {Component} from 'react'
-import axios from '../utils/helper.js'
+import React, {Component} from 'react';
+import {browserHistory} from 'react-router';
+import ItemCard from './ItemCard';
+import axios from '../utils/helper.js';
+import "../stylesheets/Search.css"
 
 /*
   Written by Austin, edited by Joe
@@ -10,10 +13,6 @@ class Search extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        itemImgUrl: "",
-        itemName: "",
-        itemPrice: "",
-        itemBuyUrl: "",
         responseData: []
       }
   }
@@ -24,23 +23,27 @@ class Search extends Component {
     let searchItem = event.target.elements[0].value;
     if(searchItem !== null || searchItem.length !== 0){
       axios.search(searchItem).then((res) => {
+        console.log("Search",res.data.results);
         this.setState({
-          responseData: res.data
+          responseData: res.data.results
         })
-        console.log(res.data);
+        console.log("state after search:", this.state);
+        browserHistory.push("/search/itemcard")
       })
     }
   }
 
   render() {
-    const products = this.state.reponse;
+    const products = this.state.responseData;
+    console.log('products', products);
 
     return(
       <div>
         <form className="search-form" onSubmit={(event) => this.productSearch(event)}>
-          <input type="text"></input>
-          <button type="submit">Search</button>
+          <input id="search-box" type="text"></input>
+          <button id="search-btn" type="submit">Search</button>
         </form>
+        <ItemCard itemDetails={products}/>
       </div>
     )
   }

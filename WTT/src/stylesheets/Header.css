@@ -12,12 +12,12 @@
   border-right: 3px solid white;
   border-bottom: 3px rgba(144, 208, 151, 1);
   border-left: 3px solid white;
-  border-radius: 15px;
   transition: 1s;
 }
 
 .logoBtnArea:hover, .aboutButton:hover {
   background: rgba(107, 245, 123, 1);
+  cursor: pointer;
 }
 
 .logo {
@@ -43,14 +43,14 @@ h1 {
   height: 80px;
   width: 100px;
   border-top: 3px rgba(144, 208, 151, 1);
-  border-right: 3px solid white;
+  border-right: 1.5px solid white;
   border-bottom: 3px rgba(144, 208, 151, 1);
   border-left: 3px solid white;
-  border-radius: 15px;
   text-align: center;
   transition: 1s;
 }
 
 .loginButton:hover {
   background: rgba(107, 245, 123, 1);
+  cursor: pointer;
 }

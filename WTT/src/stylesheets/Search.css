@@ -1,0 +1,27 @@
+.search-form {
+  margin: 20px;
+}
+
+#search-btn {
+  background: white;
+  color: rgba(144, 208, 151, 1);
+  font-size: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: 1px solid rgba(144, 208, 151, 1);
+  margin-left: 10px;
+  transition: 1s;
+}
+
+#search-btn:hover {
+  background: rgba(144, 208, 151, 1);
+  color: white;
+  cursor: pointer;
+}
+
+#search-box {
+  font-size: 20px;
+  height: 35px;
+  width: 20%;
+  text-align: center;
+}
