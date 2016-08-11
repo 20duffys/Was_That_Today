@@ -45,12 +45,12 @@ export default {
       headers: new Headers ({
         'Content-Type' : 'application/json'
       })
-  }
+    }
 
       return fetch('https://wasthattoday.firebaseio.com/users/' + user + '.json', fetchSettings)
         .then((response) => {
           return response.json();
     });
-}
+  }
 
 }

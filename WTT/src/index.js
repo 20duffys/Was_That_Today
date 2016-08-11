@@ -13,6 +13,7 @@ import Search from './components/Search'
 import Login from './components/Login';
 import Header from './components/Header';
 import ItemCard from './components/ItemCard';
+import GiftList from "./components/GiftList"
 import './stylesheets/index.css';
 
 
@@ -23,10 +24,13 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <Route path="/login" component={Login}></Route>
         <Route path="/login/newUser" component={NewUser}></Route>
-        <Route path="/userPanel/:user" component={UserPanel}></Route>
+        <Route path="/userPanel/:user" component={UserPanel}>
+          <Route path="/userPanel/giftlist/:user" component={GiftList}/>
+        </Route>
         <Route path="/search/:user" component={Search}>
           <Route path="/search/itemcard/:user" component={ItemCard} />
         </Route>
+        <Route path="/giftlist/:user" component={GiftList}></Route>
         <Route path="/about" component={About}></Route>
       </Route>
     </Router>
