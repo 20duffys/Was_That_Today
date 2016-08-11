@@ -27,7 +27,7 @@ class ItemCard extends Component {
           return (
             <div className='item-card'key={index}>
               <h5>{item.name}</h5>
-              <img className="item-img" src={item.images[0]}/>
+              <img alt="product-img" className="item-img" src={item.images[0]}/>
               <p>${item.price}</p>
               {item.sitedetails.map(function (site, index){
                 return <div key={index}><a target="_blank" href={site.url}>Link# {index+1}</a></div>

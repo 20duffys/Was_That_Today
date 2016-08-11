@@ -1,8 +1,11 @@
 .search-form {
-  margin: 20px;
+  display: inline;
+  margin: 20px auto;
 }
 
 #search-btn {
+  display: inline;
+  margin: 0 auto;
   background: white;
   color: rgba(144, 208, 151, 1);
   font-size: 20px;
@@ -20,8 +23,10 @@
 }
 
 #search-box {
+  display: inline;
+  margin: 0 auto;
+  width: 20%;
   font-size: 20px;
   height: 35px;
-  width: 20%;
   text-align: center;
 }
