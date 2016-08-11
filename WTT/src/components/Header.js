@@ -7,10 +7,6 @@ import {browserHistory} from 'react-router'
 import '../stylesheets/Header.css';
 
 class Header extends Component {
-  constructor(){
-    super();
-  }
-
   handleLogin(){
     browserHistory.push("/login");
   }

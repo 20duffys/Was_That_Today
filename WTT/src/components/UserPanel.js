@@ -1,13 +1,8 @@
 // By Sam Duffy edited By Austin
 import React, { Component } from 'react';
 import {Link, browserHistory} from 'react-router';
-import Search from "./Search";
-
 
 class UserPanel extends Component {
-  constructor(props){
-    super(props);
-  }
 
   displaySearch(){
     browserHistory.push("/search")

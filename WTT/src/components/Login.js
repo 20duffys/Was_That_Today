@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Link, browserHistory} from 'react-router';
-import "../stylesheets/Login.css"
+import {FormGroup, ControlLabel, FormControl, HelpBlock, Button} from 'react-bootstrap';
+import "../stylesheets/Login.css";
+
 
 /*
  Written by Austin
@@ -9,21 +11,50 @@ class Login extends Component {
   constructor(){
     super();
     this.state = {
-      user: "Guest"
+      username: "",
+      password: "",
+      status: ""
     };
+  }
+
+  getUserNameValidationState() {
+    const userLength = this.state.username.length;
+    if (userLength >= 8) return 'success';
+    else if (userLength > 5) return 'warning';
+    else if (userLength > 0) return 'error';
+  }
+
+  getPasswordValidationState(){
+    const passwordLength = this.state.password.length;
+    if (passwordLength >=3) return 'success';
+    else if (passwordLength > 2) return 'warning';
+    else if (passwordLength > 0) return 'error';
+  }
+
+  handleUserNameChange(event) {
+    this.setState({ username: event.target.value });
+  }
+
+  handlePasswordChange(event){
+    this.setState({password: event.target.value});
   }
 
   handleLogin(event){
     event.preventDefault();
-    let email = event.target.elements[0].value;
-    let password = event.target.elements[1].value;
+    let email = this.state.email;
+    let password = this.state.password;
     //only go to the page if the username value isn't null or the length isn't zero
     //TODO need to do user auth and validation with firebase
-    if(email !== null || email.length !== 0){
-      this.setState({user: email});
-      console.log("State: ", this.state);
-      const path = `/userPanel/${email}/`
-      browserHistory.push(path);
+    if(email !== undefined && password !== undefined){
+      if((email.length !== 0) && (password.length)){
+        this.setState({user: email});
+        console.log("State: ", this.state);
+        const path = `/userPanel/${email}/`
+        browserHistory.push(path);
+      }
+    }
+    else {
+      this.setState({status: "Error has occured"});
     }
   }
 
@@ -31,15 +62,38 @@ class Login extends Component {
     return(
       <div id='login'>
         <form onSubmit={(event) => this.handleLogin(event)}>
-          <label>E-mail: </label>
-          <input type="text" placeholder="e-mail"></input>
-          <label>Password: </label>
-          <input type="password" placeholder="password"></input>
-          <button type="submit">Login</button>
-          <Link to="/userPanel/Guest">Login as Guest</Link>
-        </form>
-          <p>Don't have an account <Link to="login/newUser">create account</Link></p>
-        {this.props.children}
+         <FormGroup
+           controlId="user-name-group"
+           validationState={this.getUserNameValidationState()}>
+           <ControlLabel>User Name</ControlLabel>
+           <FormControl
+             type="text"
+             value={this.state.username}
+             placeholder="username"
+             onChange={this.handleUserNameChange.bind(this)}
+           />
+           <FormControl.Feedback />
+           <HelpBlock>Username must be at least 8 characters long.</HelpBlock>
+         </FormGroup>
+         <FormGroup
+           controlId='password-group'
+           validationState={this.getPasswordValidationState()}>
+         <ControlLabel>Password</ControlLabel>
+         <FormControl
+           type="password"
+           value={this.state.password}
+           placeholder="password"
+           onChange={this.handlePasswordChange.bind(this)}
+          />
+         <FormControl.Feedback />
+         <HelpBlock>Password must be at least 3 characters long.</HelpBlock>
+         </FormGroup>
+       <Button className="login-btn" type="submit">Login</Button>
+       <Link to="/userPanel/Guest">Login as Guest</Link>
+      </form>
+      <p>Don't have an account <Link to="login/newUser">create account</Link></p>
+      <div id="error">{this.state.status}</div>
+      {this.props.children}
       </div>
     )
   }
