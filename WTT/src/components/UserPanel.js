@@ -3,21 +3,29 @@ import React, { Component } from 'react';
 import {Link, browserHistory} from 'react-router';
 
 class UserPanel extends Component {
+  constructor() {
+    super();
+    this.state ={
+      username: ""
+    }
+  }
 
-  displaySearch(){
-    browserHistory.push("/search")
+  displaySearch(user){
+    console.log(user);
+    this.setState({ username: user});
+    console.log("UP,S",this.state);
+    browserHistory.push(`/search/${this.props.params.user}`);
   }
 
   render(){
-
     return(
       <div>
-        <div>Welcome {this.props.params.user}!<Link to="/logout">(Logout)</Link></div>
+        <div>Welcome {this.props.params.user}!<Link to="/">(Logout)</Link></div>
         <div id="search-link">
-          <button onClick={this.displaySearch.bind(this)}>Search</button>
+          <button onClick={(event) => this.displaySearch(this.props.params.user)}>Search</button>
         </div>
         <div id="see-all-btn">
-          <button>See All</button>
+
         </div>
       </div>
     )

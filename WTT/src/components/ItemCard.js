@@ -13,13 +13,10 @@ class ItemCard extends Component {
     super(props);
   }
 
-  addGift(){
-    console.log("yo");
-  }
-
   render() {
 
     const itemDetails = this.props.itemDetails;
+    const user = this.props.user;
 
     return(
       <div className='item-cards'>
@@ -32,7 +29,7 @@ class ItemCard extends Component {
               {item.sitedetails.map(function (site, index){
                 return <div key={index}><a target="_blank" href={site.url}>Link# {index+1}</a></div>
               })}
-              <Favorite key={index} item={item}/>
+              <Favorite user={user} key={index} item={item}/>
             </div>
           )
         })}

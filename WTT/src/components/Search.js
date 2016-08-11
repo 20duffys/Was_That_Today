@@ -28,7 +28,7 @@ class Search extends Component {
           responseData: res.data.results
         })
         console.log("state after search:", this.state);
-        browserHistory.push("/search/itemcard")
+        browserHistory.push(`/search/itemcard/${this.props.params.user}`)
       })
     }
   }
@@ -36,14 +36,14 @@ class Search extends Component {
   render() {
     const products = this.state.responseData;
     console.log('products', products);
-
+    console.log("Search",this.props.params);
     return(
       <div>
         <form className="search-form" onSubmit={(event) => this.productSearch(event)}>
           <input id="search-box" type="text"></input>
           <button id="search-btn" type="submit">Search</button>
         </form>
-        <ItemCard itemDetails={products}/>
+        <ItemCard user={this.props.params.user} itemDetails={products}/>
       </div>
     )
   }

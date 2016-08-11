@@ -24,8 +24,8 @@ ReactDOM.render(
         <Route path="/login" component={Login}></Route>
         <Route path="/login/newUser" component={NewUser}></Route>
         <Route path="/userPanel/:user" component={UserPanel}></Route>
-        <Route path="/search" component={Search}>
-          <Route path="/search/itemcard" component={ItemCard} />
+        <Route path="/search/:user" component={Search}>
+          <Route path="/search/itemcard/:user" component={ItemCard} />
         </Route>
         <Route path="/about" component={About}></Route>
       </Route>
