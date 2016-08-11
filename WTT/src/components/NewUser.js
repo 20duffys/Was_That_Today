@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {browserHistory} from 'react-router';
+import "../stylesheets/NewUser.css"
 
 /*
  Written by Austin
@@ -22,7 +23,7 @@ class NewUser extends Component {
   render(){
     return(
       <div id='new-user'>
-        <form onSubmit={(event) => this.handleNewUser(event)}>
+        <form id="new-user" onSubmit={(event) => this.handleNewUser(event)}>
           <label>UserName: </label>
           <input type="text"></input>
           <label>Password: </label>
