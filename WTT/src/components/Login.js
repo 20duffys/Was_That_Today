@@ -41,15 +41,13 @@ class Login extends Component {
 
   handleLogin(event){
     event.preventDefault();
-    let email = this.state.email;
+    let username = this.state.username;
     let password = this.state.password;
     //only go to the page if the username value isn't null or the length isn't zero
     //TODO need to do user auth and validation with firebase
-    if(email !== undefined && password !== undefined){
-      if((email.length !== 0) && (password.length)){
-        this.setState({user: email});
-        console.log("State: ", this.state);
-        const path = `/userPanel/${email}/`
+    if(username !== undefined && password !== undefined){
+      if((username.length !== 0) && (password.length !== 0 )){
+        const path = `/userPanel/${username}/`
         browserHistory.push(path);
       }
     }
