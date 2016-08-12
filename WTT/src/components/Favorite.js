@@ -31,7 +31,6 @@ class Favorite extends Component {
       console.log("User Found", json);
 
       let ukey = Object.keys(json)[0]; //user key
-      // let fkey = Object.keys(json[ukey])[0]; favorite item key
       console.log(json[ukey]["favoriteItems"]);
 
     // //update account

@@ -55,14 +55,14 @@ export default {
           return response.json();
     });
   },
-  deleteItem: function(user, dbkey, index){
+  deleteItem: function(user, userKey, favKey){
     const fetchSettings = {
       method: 'DELETE',
       headers: new Headers ({
         'Content-Type' : 'application/json'
       })
     }
-    return fetch('https://wasthattoday.firebaseio.com/users/' + user + '/' + dbkey + '/favoriteItems/' + index + '.json', fetchSettings)
+    return fetch('https://wasthattoday.firebaseio.com/users/' + user + '/' + userKey + '/favoriteItems/' + favKey + '.json', fetchSettings)
       .then((response) => {
         return response.json();
   });

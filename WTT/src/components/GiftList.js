@@ -8,7 +8,8 @@ class GiftList extends Component {
     super(props);
     this.state = {
       favInfo: [],
-      dbKey: ""
+      favInfoKeys: [],
+      userKey: ""
     }
   }
   deleteFav() {
@@ -23,46 +24,48 @@ class GiftList extends Component {
   displayFavorites(){
     let favInfo = this.state.favInfo;
     let user = this.props.params.user;
-    let dbKey = this.state.dbKey;
-    console.log("key in giftlist", dbKey);
+    let userKey = this.state.userKey;
+    let entry;
     console.log("FAVVVV INFFFOO", favInfo);
-    let entry = this.state.favInfo.map(function(item, index){
-      return (
-        <div key={index}>
-          <img src={item.image}/>
-          <br/>
-          {item.name}
-          <br/>
-          {item.price}
-          {item.links.map(function (site, index){
-            return <div key={index}><a target="_blank" href={site}>Link# {index+1}</a></div>
-          })}
-          <DeleteItem item={favInfo} user={user} index={index} dbKey={dbKey}/>
-        </div>)
+    let favorite = this.state.favInfoKeys.map(function(favKey, index){
+      entry = favInfo.map(function(item, index){
+        return (
+          <div key={index}>
+            <img src={item.image}/>
+            <br/>
+            {item.name}
+            <br/>
+            {item.price}
+            {item.links.map(function (site, index){
+              return <div key={index}><a target="_blank" href={site}>Link# {index+1}</a></div>
+            })}
+            <DeleteItem user={user} userKey={userKey} favKey={favKey}/>
+          </div>)
+      })
     })
-    return entry
+
+    return entry;
   }
 
   getFavorites(user){
 
     Firebase.findUser(user).then((res) => {
-        let userInfo = [];
         let userKey = Object.keys(res)[0];
+        let favInfoKeys = [];
+        let uFavArray = [];
+        let userFavorites = res[userKey].favoriteItems;
 
-        let favoriteItemKey = Object.keys(res[userKey])[0];
-        console.log(favoriteItemKey);
 
-
-        // this.setState({dbKey: key});
-        // //convert array
-        // for(let prop in res){
-        //   userInfo.push(res[prop]);
-        // }
-        // console.log(key);
-        // console.log(userInfo[0].favoriteItems);
-        // this.setState({
-        //   favInfo: userInfo[0].favoriteItems
-        // })
+        //extract dummy from userFavorites
+        for(let prop in userFavorites){
+          if(prop !== 'dummy'){
+            uFavArray.push(userFavorites[prop]);
+          }
+        }
+        //  we did this for you ethan! if you're looking at this
+        favInfoKeys = Object.keys(userFavorites).filter(elem => elem !== "dummy");
+        console.log("fik",favInfoKeys);
+        this.setState({favInfo: uFavArray, userKey: userKey, favInfoKeys:favInfoKeys});
 
     })
 
@@ -83,13 +86,4 @@ class GiftList extends Component {
   }
 }
 
-/**
-// .map(function(links, index){
-//   return (
-//     <div key={index}>
-//       {links}
-//     </div>
-//   )
-// })
-**/
 export default GiftList
