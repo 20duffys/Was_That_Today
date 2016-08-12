@@ -4,19 +4,16 @@ Written by Joe and Austin
 
 import React, { Component } from 'react';
 import '../stylesheets/ItemCard.css';
-import { Link } from 'react-router';
 import Favorite from "./Favorite"
 
 class ItemCard extends Component {
-
-  constructor(props) {
-    super(props);
-  }
 
   render() {
 
     const itemDetails = this.props.itemDetails;
     const user = this.props.user;
+    let guest = 0;
+    if(user === "Guest") {guest = 1;}
 
     return(
       <div className='item-cards'>
@@ -29,7 +26,7 @@ class ItemCard extends Component {
               {item.sitedetails.map(function (site, index){
                 return <div key={index}><a target="_blank" href={site.url}>Link# {index+1}</a></div>
               })}
-              <Favorite user={user} key={index} item={item}/>
+              { !guest ? <Favorite user={user} key={index} item={item}/> : ""}
             </div>
           )
         })}

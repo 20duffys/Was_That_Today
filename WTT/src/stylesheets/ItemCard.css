@@ -10,6 +10,12 @@
   margin: 30px .5% 20px .5%;
   border: 1px solid rgba(144, 208, 151, 1);
   padding: 10px;
+  transition: .5s;
+}
+
+.item-card:hover {
+  border: 1px solid rgba(107, 245, 123, 1);
+  box-shadow: 10px 10px 24px -9px rgba(107, 245, 123, 1);
 }
 
 .item-img {

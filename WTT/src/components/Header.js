@@ -24,7 +24,7 @@ class Header extends Component {
       <div>
         <header className='header'>
           <button className='logoBtnArea' onClick={this.handleHome.bind(this)}>
-            <img className='logo' height="45" width="45" role="presentation" src='gift.png'/>
+            <div className='logo'></div>
           </button>
           <h1>Was That Today?</h1>
           <button className="aboutButton" onClick={this.handleAbout.bind(this)}>About</button>

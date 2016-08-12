@@ -5,7 +5,7 @@ import "../stylesheets/Login.css";
 
 
 /*
- Written by Austin
+ Written by Austin, edited by Joe
 */
 class Login extends Component {
   constructor(){
@@ -87,9 +87,10 @@ class Login extends Component {
          <HelpBlock>Password must be at least 3 characters long.</HelpBlock>
          </FormGroup>
        <Button className="login-btn" type="submit">Login</Button>
-       <Link to="/userPanel/Guest">Login as Guest</Link>
+       <br/>
       </form>
-      <p>Don't have an account <Link to="login/newUser">create account</Link></p>
+      <p>Don't have an account? <br/> <Link to="login/newUser">create an account</Link></p>
+      <Link to="/userPanel/Guest">or Login as Guest</Link>
       <div id="error">{this.state.status}</div>
       {this.props.children}
       </div>

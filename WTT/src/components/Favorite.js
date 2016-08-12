@@ -66,47 +66,7 @@ class Favorite extends Component {
         console.log("Saved!");
       })
 
-      // let userInfo = [];
-      // let favArray = [];
-      // let favoriteItemExists = false;
-      // let convJson = [];
-      //
-      // //convert to array
-      // for(let prop in json){
-      //   convJson.push(json[prop]);
-      // }
-      //
-      // console.log("CONVJSON", convJson);
-      //
-      // for(let prop in convJson){
-      //   console.log("PROPPPP", prop);
-      //    if(prop === "1"){
-      //     console.log(convJson[prop]);
-      //     favArray.push(convJson[prop]);
-      //     favArray.push(favItem);
-      //     userInfo["favoriteItems"] = favArray;
-      //     favoriteItemExists = true;
-      //     console.log("Favorite Items: ", favArray);
-      //   }
-      //
-      //   console.log("FAVVORITE ARRAY:", favArray);
-      // }
-      //
-      // //check if it has property of favoriteItems
-      // if(favoriteItemExists === false){
-      //   userInfo["favoriteItems"] = [];
-      //   userInfo["favoriteItems"] = favItem;
-      //   console.log(userInfo);
-      // }
-      // console.log("USERINFO::", userInfo.favoriteItems);
-      // let favoriteItem = userInfo.favoriteItems;
-      //update account
-        // Firebase.addFavItem(favoriteItem, this.props.user).then((json)=>{
-        //   console.log("Saved!");
-        // })
-
     })
-
 
    }
 
@@ -115,7 +75,7 @@ class Favorite extends Component {
     console.log(this.props.user);
     return(
       <div>
-        <button className='gift-list-btn' onClick={(event) => this.addGift(item)}>Save to Gift List</button>
+        <button id="gift-list-btn" className='gift-list-btn' onClick={(event) => this.addGift(item)}>Save to Gift List</button>
       </div>
     )
   }

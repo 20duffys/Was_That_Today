@@ -1,8 +1,9 @@
-// By Sam Duffy edited By Austin
+// By Sam Duffy edited By Austin and Joe
 import React, { Component } from 'react';
 import {Link, browserHistory} from 'react-router';
 import Firebase from '../utils/firebase.js';
 import GiftList from './GiftList';
+import '../stylesheets/UserPanel.css';
 
 class UserPanel extends Component {
   constructor() {
@@ -43,15 +44,20 @@ class UserPanel extends Component {
   }
 
   render(){
+    let guest = 0;
+    let user = this.props.params.user;
+    if(user === "Guest") {guest = 1;}
+
     return(
       <div>
-        <div>Welcome {this.props.params.user}!<Link to="/">(Logout)</Link></div>
+        <div id="welecome-msg">Welcome {this.props.params.user}!<Link to="/">(Logout)</Link></div>
         <div id="search-link">
-          <button onClick={(event) => this.displaySearch(this.props.params.user)}>Search</button>
+          <button className="user-panel-btn" onClick={(event) => this.displaySearch(this.props.params.user)}>Search for Gifts</button>
         </div>
+        {!guest ?
         <div id="see-all-btn">
-          <button onClick={(event) => this.displayFavorites(this.props.params.user)}>View Gift List</button>
-        </div>
+          <button className="user-panel-btn" onClick={(event) => this.displayFavorites(this.props.params.user)}>View your Gift List</button>
+        </div> : ""}
         {this.props.children}
       </div>
     )
