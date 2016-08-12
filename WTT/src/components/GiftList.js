@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import Firebase from "../utils/firebase.js";
 import "../stylesheets/GiftList.css";
-import DeleteItem from "./DeleteItem.js"
+import DeleteItem from "./DeleteItem.js";
+import Events from './Events.js';
+import {browserHistory} from 'react-router';
 
 class GiftList extends Component {
   constructor(props){
@@ -19,6 +21,9 @@ class GiftList extends Component {
   addEvent() {
     console.log("to add Event");
   }
+  handleEventsPage(favKey){
+    browserHistory.push(`/events/${this.props.params.user}`);
+  }
 
 
   displayFavorites(){
@@ -26,6 +31,7 @@ class GiftList extends Component {
     let user = this.props.params.user;
     let userKey = this.state.userKey;
     let entry;
+    let giftlist = this;
     console.log("FAVVVV INFFFOO", favInfo);
     let favorite = this.state.favInfoKeys.map(function(favKey, index){
       entry = favInfo.map(function(item, index){
@@ -40,6 +46,7 @@ class GiftList extends Component {
               return <div key={index}><a target="_blank" href={site}>Link# {index+1}</a></div>
             })}
             <DeleteItem user={user} userKey={userKey} favKey={favKey}/>
+            <button onClick={(event) => giftlist.handleEventsPage(favKey)}>Add Event</button>
           </div>)
       })
     })
@@ -81,6 +88,7 @@ class GiftList extends Component {
           <div className="favInfo">
             {favInfo.length ? this.displayFavorites() : ""}
           </div>
+        {this.props.children}
       </div>
     )
   }

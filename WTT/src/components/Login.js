@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link, browserHistory} from 'react-router';
 import {FormGroup, ControlLabel, FormControl, HelpBlock, Button} from 'react-bootstrap';
+import Firebase from '../utils/firebase.js'
 import "../stylesheets/Login.css";
 
 
@@ -43,17 +44,33 @@ class Login extends Component {
     event.preventDefault();
     let username = this.state.username;
     let password = this.state.password;
-    //only go to the page if the username value isn't null or the length isn't zero
-    //TODO need to do user auth and validation with firebase
-    if(username !== undefined && password !== undefined){
-      if((username.length !== 0) && (password.length !== 0 )){
-        const path = `/userPanel/${username}/`
-        browserHistory.push(path);
+    Firebase.findUser(username).then((res) => {
+    
+      //only go to the page if the username value isn't null
+      if(res !== null){
+        //check if the user password matches what is typed
+
+        if(password === res[(Object.keys(res)[0])].password){
+          //an extra condition to check if they are undefined or not
+          if(username !== undefined && password !== undefined){
+            if((username.length !== 0) && (password.length !== 0 )){
+              const path = `/userPanel/${username}/`
+              browserHistory.push(path);
+            }
+          }
+        }
+        //incorrect password
+        else {
+        this.setState({status: "Password is incorrect"});
+        }
+        }
+
+      else {
+        this.setState({status: "Invalid username or password"});
       }
-    }
-    else {
-      this.setState({status: "Error has occured"});
-    }
+    })
+
+
   }
 
   render(){
