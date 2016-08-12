@@ -48,7 +48,6 @@ class NewUser extends Component {
       password: password,
       FavoriteItems: []
     };
-
     Firebase.addNewUser(newUser).then((json)=>{
       console.log("Added!");
     })
@@ -59,21 +58,28 @@ class NewUser extends Component {
     event.preventDefault();
     let username = this.state.username;
     let password = this.state.password;
-    //only go to the page if the username value isn't null or the length isn't zero
-    //TODO need to do user auth and validation with firebase
-    if(username !== undefined && password !== undefined){
-      if((username.length !== 0) && (password.length !== 0 )){
-        this.createUser(username, password);
-        const path = `/userPanel/${username}/`;
-        browserHistory.push(path);
+
+    Firebase.findUser(username).then((res) => {
+      if(res === null ){
+        //only go to the page if the username value isn't null or the length isn't zero
+        //TODO need to do user auth and validation with firebase
+        if(username !== undefined && password !== undefined){
+          if((username.length !== 0) && (password.length !== 0 )){
+            this.createUser(username, password);
+            const path = `/userPanel/${username}/`;
+            browserHistory.push(path);
+          }
+        }
       }
-    }
-    else {
-      this.setState({status: "Error has occured"});
-    }
+      else if(res !== null) {
+        this.setState({status: "Username already taken."});
+      }
+    })
+
   }
 
   render(){
+    let newUser = this;
     return(
       <div id='new-user-div'>
         <form onSubmit={(event) => this.handleNewUser(event)}>
