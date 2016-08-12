@@ -29,40 +29,13 @@ class Favorite extends Component {
 
     Firebase.findUser(this.props.user).then((json)=>{
       console.log("User Found", json);
-      // //check if it has property of favoriteItems
 
-      let favoriteItemExists = false;
-      let convJson = [];
-      let favItems = [];
-      let key = Object.keys(json)[0];
-      console.log(key);
+      let ukey = Object.keys(json)[0]; //user key
+      // let fkey = Object.keys(json[ukey])[0]; favorite item key
+      console.log(json[ukey]["favoriteItems"]);
 
-      // //convert to array
-      for(let prop in json){
-        convJson.push(json[prop]);
-      }
-
-      //check to see if it has a favoriteItem property
-      if(convJson[0].hasOwnProperty("favoriteItems")){
-        favoriteItemExists = true;
-      }
-
-      console.log(convJson[0].name);
-      console.log("FIE", favoriteItemExists);
-      if(favoriteItemExists === false){
-        convJson[0].favoriteItems = [];
-        convJson[0].favoriteItems.push(favItem);
-        console.log(convJson);
-      }
-
-      if(favoriteItemExists === true) {
-        console.log("WHEN FAVORITES EXIST", convJson);
-        convJson[0].favoriteItems.push(favItem);
-        console.log(convJson);
-      }
-      favItems = convJson[0].favoriteItems;
-    //update account
-      Firebase.addFavItem(favItems, this.props.user, key).then((json)=>{
+    // //update account
+      Firebase.addFavItem(favItem, this.props.user, ukey).then((json)=>{
         console.log("Saved!");
       })
 

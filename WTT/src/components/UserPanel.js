@@ -9,7 +9,8 @@ class UserPanel extends Component {
   constructor() {
     super();
     this.state ={
-      username: ""
+      username: "",
+      FavInfo: []
     }
   }
 
@@ -27,21 +28,21 @@ class UserPanel extends Component {
 
   displayFavorites(user){
 
-    Firebase.findUser(user).then((res) => {
-        let userInfo = [];
-        //convert array
-        for(let prop in res){
-          userInfo.push(res[prop]);
-        }
-
-        console.log(userInfo[0].favoriteItems);
-        this.setState({
-          favInfo: userInfo[0].favoriteItems
-        })
-      browserHistory.push(`/userPanel/giftlist/${this.props.params.user}`);
-    })
-
-  }
+  //   Firebase.findUser(user).then((res) => {
+  //       let userInfo = [];
+  //       //convert array
+  //       for(let prop in res){
+  //         userInfo.push(res[prop]);
+  //       }
+  //
+  //       console.log(userInfo[0].favoriteItems);
+  //       this.setState({
+  //         favInfo: userInfo[0].favoriteItems
+  //       })
+       browserHistory.push(`/giftlist/${this.props.params.user}`);
+  //   })
+  //
+   }
 
   render(){
     let guest = 0;
@@ -58,7 +59,6 @@ class UserPanel extends Component {
         <div id="see-all-btn">
           <button className="user-panel-btn" onClick={(event) => this.displayFavorites(this.props.params.user)}>View your Gift List</button>
         </div> : ""}
-        {this.props.children}
       </div>
     )
   }

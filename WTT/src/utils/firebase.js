@@ -2,17 +2,20 @@ export default {
   addFavItem: function(favItem, user, key){
     console.log("FAVVV",favItem);
     const fetchSettings = {
-      method: 'PATCH',
+      method: 'POST',
       headers: new Headers ({
         'Content-Type' : 'application/json'
       }),
       body: JSON.stringify({
-        favoriteItems: favItem
+          name: favItem.name,
+          image: favItem.image,
+          price: favItem.price,
+          links: favItem.links
       })
     }
       console.log(fetchSettings);
 
-      return fetch('https://wasthattoday.firebaseio.com/users/' + user+ '/' + key + '.json', fetchSettings)
+      return fetch('https://wasthattoday.firebaseio.com/users/' + user+ '/' + key + '/favoriteItems.json', fetchSettings)
         .then((response) => {
           return response.json();
       });
@@ -27,7 +30,7 @@ export default {
       body: JSON.stringify({
         name: user.name,
         password: user.password,
-        favoriteItems: user.FavoriteItems
+        favoriteItems: {dummy : "dummy"}
       })
     }
         console.log(fetchSettings);
@@ -51,6 +54,18 @@ export default {
         .then((response) => {
           return response.json();
     });
+  },
+  deleteItem: function(user, dbkey, index){
+    const fetchSettings = {
+      method: 'DELETE',
+      headers: new Headers ({
+        'Content-Type' : 'application/json'
+      })
+    }
+    return fetch('https://wasthattoday.firebaseio.com/users/' + user + '/' + dbkey + '/favoriteItems/' + index + '.json', fetchSettings)
+      .then((response) => {
+        return response.json();
+  });
   }
 
 }

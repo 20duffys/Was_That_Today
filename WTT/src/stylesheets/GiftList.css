@@ -1,0 +1,40 @@
+.item-cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.item-card {
+  width: 30%;
+  margin: 30px .5% 20px .5%;
+  border: 1px solid rgba(144, 208, 151, 1);
+  padding: 10px;
+  transition: .5s;
+}
+
+.item-card:hover {
+  border: 1px solid rgba(107, 245, 123, 1);
+  box-shadow: 10px 10px 24px -9px rgba(107, 245, 123, 1);
+}
+
+.item-img {
+  width: 100px;
+  height: 100px;
+}
+
+h5 {
+  font-size: 20px;
+  color: rgba(255, 177, 82, 1);
+}
+
+p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  font-size: 20px;
+  color: rgba(174, 82, 255, 1);
+}
