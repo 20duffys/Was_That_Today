@@ -2,12 +2,20 @@
   color: red;
 }
 
+#login{
+  text-align: center;
+}
+
 .login-btn{
   margin-right: 5px;
 }
 
 form {
-  width: 50%; 
+  width: 50%;
   display: block;
   margin: 0 auto;
+}
+
+a {
+  color: rgba(0, 79, 153, 1);
 }

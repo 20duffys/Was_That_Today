@@ -40,12 +40,17 @@ class Search extends Component {
     const products = this.state.responseData;
     console.log('products', products);
     console.log("Search",this.props.params);
+    let user = this.props.params.user;
+    let guest = 0;
+    if (user ==="Guest") {
+      guest = 1;
+    }
     return(
-      <div>
+      <div id="search-container">
         <form className="search-form" onSubmit={(event) => this.productSearch(event)}>
           <input id="search-box" type="text"></input>
           <button id="search-btn" type="submit">Search</button>
-          <button className="user-panel-btn" onClick={(event) => this.viewGiftList(event)}>View Gift List</button>
+          {!guest ? <button className="user-panel-btn" onClick={(event) => this.viewGiftList(event)}>View Gift List</button> : ""}
         </form>
         <ItemCard user={this.props.params.user} itemDetails={products}/>
       </div>

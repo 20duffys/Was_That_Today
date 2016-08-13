@@ -1,34 +1,87 @@
 .no-event {
-  color: red; 
-}
-.item-cards {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
+  font-size: 20px;
+  color: red;
 }
 
-.item-card {
+.gift-event {
   width: 30%;
-  margin: 30px .5% 20px .5%;
-  border: 1px solid rgba(144, 208, 151, 1);
+  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  margin-left: 30px;
+}
+
+.gift-info {
+  width: 40%;
+}
+
+.gift-item {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  width: 70%;
+  margin: 30px auto;
+  border: 1px solid rgba(108, 91, 123, 1);
   padding: 10px;
   transition: .5s;
 }
 
-.item-card:hover {
-  border: 1px solid rgba(107, 245, 123, 1);
-  box-shadow: 10px 10px 24px -9px rgba(107, 245, 123, 1);
+.gift-item:hover {
+  border: 1px solid rgba(125, 80, 165, 1);
+  box-shadow: 10px 10px 24px -9px rgba(125, 80, 165, 1);
 }
 
-.item-img {
-  width: 100px;
-  height: 100px;
+.gift-img {
+  padding: 10px;
+  width: 300px;
+  height: 300px;
+}
+
+#view-btn {
+  display: block ;
+  margin: 0 auto;
+  background: white;
+  color: rgba(0, 79, 153, 1);
+  font-size: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: 1px solid rgba(0, 79, 153, 1);
+  transition: 1s;
+}
+
+#view-btn:hover {
+  background: rgba(0, 113, 219, 1);
+  color: white;
+  cursor: pointer;
+}
+
+#add-event-btn {
+  display: inline;
+  height: 60px;
+  background: rgba(108, 91, 123, 1);
+  color: white;
+  font-size: 20px;
+  padding: 10px 10px;
+  text-decoration: none;
+  border: 1px solid rgba(108, 91, 123, 1);
+  margin-left: 10px;
+  transition: 1s;
+}
+
+#add-event-btn:hover {
+  background: rgba(125, 80, 165, 1);
+  cursor: pointer;
+}
+
+#delete-btn {
+  float: right;
 }
 
 h5 {
   font-size: 20px;
-  color: rgba(255, 177, 82, 1);
+  color: rgba(108, 91, 123, 1);
 }
 
 p {

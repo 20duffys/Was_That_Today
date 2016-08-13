@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Firebase from '../utils/firebase.js';
 import {browserHistory} from 'react-router';
+import '../stylesheets/DeleteItem.css'
 
 class DeleteItem extends Component {
   deleteItem(user, userKey, favKey){
@@ -15,7 +16,7 @@ class DeleteItem extends Component {
   }
   render(){
     return (
-      <button onClick={(event) => this.deleteItem(this.props.user, this.props.userKey, this.props.favKey)}>X</button>
+      <button id="delete-item" onClick={(event) => this.deleteItem(this.props.user, this.props.userKey, this.props.favKey)}></button>
     )
 
   }

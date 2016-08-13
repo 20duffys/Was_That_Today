@@ -15,6 +15,7 @@ import Header from './components/Header';
 import ItemCard from './components/ItemCard';
 import GiftList from "./components/GiftList"
 import Events from './components/Events';
+import Home from './components/Home';
 import './stylesheets/index.css';
 
 
@@ -23,6 +24,7 @@ ReactDOM.render(
     <Header />
     <Router history={browserHistory}>
       <Route path="/" component={App}>
+        <Route path="/home" component={Home}></Route>
         <Route path="/login" component={Login}></Route>
         <Route path="/login/newUser" component={NewUser}></Route>
         <Route path="/userPanel/:user" component={UserPanel}>

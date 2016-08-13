@@ -1,7 +1,7 @@
 .header {
   margin-top: 5px;
   margin-bottom: 20px;
-  background: rgba(144, 208, 151, 1);
+  background: rgba(0, 79, 153, 1);
   height: 80px;
 }
 
@@ -9,16 +9,16 @@
   display: inline;
   height: 80px;
   width: 100px;
-  background: rgba(144, 208, 151, 1);
-  border-top: 3px rgba(144, 208, 151, 1);
+  background: rgba(0, 79, 153, 1);
+  border-top: 3px rgba(0, 79, 153, 1);
   border-right: 3px solid white;
-  border-bottom: 3px rgba(144, 208, 151, 1);
+  border-bottom: 3px rgba(0, 79, 153, 1);
   border-left: 3px solid white;
   transition: 1s;
 }
 
 .logoBtnArea:hover, .aboutButton:hover {
-  background: rgba(107, 245, 123, 1);
+  background: rgba(0, 113, 219, 1);
   cursor: pointer;
 }
 
@@ -29,7 +29,7 @@
   width: 50px;
   height: 50px;
   display: block;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 h1 {
@@ -43,22 +43,22 @@ h1 {
 
 .loginButton, .aboutButton {
   float: right;
-  background: rgba(144, 208, 151, 1);
+  background: rgba(0, 79, 153, 1);
   text-shadow: 0px 0px 7px rgba(150, 150, 150, 1);
   color: white;
   font-size: 20px;
   font-weight: bold;
   height: 80px;
   width: 100px;
-  border-top: 3px rgba(144, 208, 151, 1);
+  border-top: 3px rgba(0, 79, 153, 1);
   border-right: 1.5px solid white;
-  border-bottom: 3px rgba(144, 208, 151, 1);
+  border-bottom: 3px rgba(0, 79, 153, 1);
   border-left: 3px solid white;
   text-align: center;
   transition: 1s;
 }
 
 .loginButton:hover {
-  background: rgba(107, 245, 123, 1);
+  background: rgba(0, 113, 219, 1);
   cursor: pointer;
 }

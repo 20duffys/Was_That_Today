@@ -3,21 +3,25 @@
   margin: 20px auto;
 }
 
+#search-container {
+  text-align: center;
+}
+
 #search-btn {
   display: inline;
   margin: 0 auto;
   background: white;
-  color: rgba(144, 208, 151, 1);
+  color: rgba(0, 79, 153, 1);
   font-size: 20px;
   padding: 10px 20px;
   text-decoration: none;
-  border: 1px solid rgba(144, 208, 151, 1);
+  border: 1px solid rgba(0, 79, 153, 1);
   margin-left: 10px;
   transition: 1s;
 }
 
 #search-btn:hover {
-  background: rgba(144, 208, 151, 1);
+  background: rgba(0, 113, 219, 1);
   color: white;
   cursor: pointer;
 }

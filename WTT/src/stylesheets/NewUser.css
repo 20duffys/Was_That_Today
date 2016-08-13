@@ -1,4 +1,8 @@
 #new-user{
-  margin: 10px; 
+  margin: 10px;
   width: 100vw;
+}
+
+#new-user-div {
+  text-align: center;
 }

@@ -43,7 +43,7 @@ class GiftList extends Component {
         if (item.event !== undefined){
         eventInfo =
           <div className="event-info">
-            {item.event.name}
+            {item.event.name}<br/>
             {item.event.date}
           </div>
         }
@@ -51,18 +51,20 @@ class GiftList extends Component {
         eventInfo = <div className="no-event">No Event found!</div>
         }
         return (
-          <div key={index}>
-            <img src={item.image}/>
-            <br/>
-            {item.name}
-            <br/>
-            {item.price}
-            {item.links.map(function (site, index){
-              return <div key={index}><a target="_blank" href={site}>Link# {index+1}</a></div>
-            })}
-            {eventInfo}
-            <DeleteItem user={user} userKey={userKey} favKey={favKey}/>
-            <button onClick={(event) => giftlist.handleEventsPage(favKey)}>Add Event</button>
+          <div className="gift-item" key={index}>
+            <div className="img-container"><img className="gift-img" src={item.image}/></div>
+            <div className="gift-info">
+              <h3>{item.name}</h3>
+              <h4>{item.price}</h4>
+              <h5>{item.links.map(function (site, index){
+                return <div key={index}><a target="_blank" href={site}>Link# {index+1}</a></div>
+              })}</h5>
+            </div>
+            <div className="gift-event">
+              <button id="add-event-btn" onClick={(event) => giftlist.handleEventsPage(favKey)}>Add Event</button>
+              {eventInfo}
+              <div id="delete-btn"><DeleteItem  user={user} userKey={userKey} favKey={favKey}/></div>
+            </div>
           </div>)
       })
 
@@ -100,7 +102,9 @@ class GiftList extends Component {
     let favInfo = this.state.favInfo;
     return (
       <div>
-        <button onClick={(event) => this.getFavorites(user)}>See All</button>
+        <div>
+          <button id="view-btn" onClick={(event) => this.getFavorites(user)}>See All</button>
+        </div>
           <div className="favInfo">
             {favInfo.length ? this.displayFavorites() : ""}
           </div>

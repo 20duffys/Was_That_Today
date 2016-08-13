@@ -8,14 +8,14 @@
 .item-card {
   width: 30%;
   margin: 30px .5% 20px .5%;
-  border: 1px solid rgba(144, 208, 151, 1);
+  border: 1px solid rgba(108, 91, 123, 1);
   padding: 10px;
   transition: .5s;
 }
 
 .item-card:hover {
-  border: 1px solid rgba(107, 245, 123, 1);
-  box-shadow: 10px 10px 24px -9px rgba(107, 245, 123, 1);
+  border: 1px solid rgba(125, 80, 165, 1);
+  box-shadow: 10px 10px 24px -9px rgba(125, 80, 165, 1);
 }
 
 .item-img {
@@ -25,7 +25,7 @@
 
 h5 {
   font-size: 20px;
-  color: rgba(255, 177, 82, 1);
+  color: rgba(246, 114, 128, 1);
 }
 
 p {

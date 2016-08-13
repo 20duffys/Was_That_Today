@@ -1,19 +1,16 @@
-/*
-Written by Joe
-*/
-
-import React from 'react';
+import React, { Component } from 'react';
 import '../stylesheets/Home.css';
-import { Link } from react-router;
 
 class Home extends Component {
+
   render() {
-    return(
-      <div className='homepage'>
-        <h1></h1>
-        <footer></footer>
+    return (
+    <div>
+      <div id="banner">
+        <h2 id="headline">Find a gift for any event</h2>
       </div>
-    )
+    </div>
+    );
   }
 }
 

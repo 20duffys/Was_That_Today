@@ -14,7 +14,7 @@ class Header extends Component {
   }
 
   handleHome(){
-    browserHistory.push("/")
+    browserHistory.push("/home")
   }
 
   render(){

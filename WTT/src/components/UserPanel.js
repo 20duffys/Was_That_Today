@@ -30,8 +30,8 @@ class UserPanel extends Component {
     if(user === "Guest") {guest = 1;}
 
     return(
-      <div>
-        <div id="welecome-msg">Welcome {this.props.params.user}!<Link to="/">(Logout)</Link></div>
+      <div id="user-panel-container">
+        <div id="welecome-msg">Welcome {this.props.params.user}!<br/><Link to="/">(Logout)</Link></div>
         <div id="search-link">
           <button className="user-panel-btn" onClick={(event) => this.displaySearch(this.props.params.user)}>Search for Gifts</button>
         </div>
