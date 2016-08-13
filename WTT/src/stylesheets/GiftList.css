@@ -1,3 +1,6 @@
+.no-event {
+  color: red; 
+}
 .item-cards {
   display: flex;
   flex-wrap: wrap;

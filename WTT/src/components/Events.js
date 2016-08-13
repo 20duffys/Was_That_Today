@@ -37,12 +37,17 @@ class Events extends Component {
             uFavArray.push(userFavorites[prop]);
           }
         }
-        console.log(this.props.params.user);
-        console.log(this.props.params.itemID);
-        // //  we did this for you ethan! if you're looking at this
-        // favInfoKeys = Object.keys(userFavorites).filter(elem => elem !== "dummy");
-        // console.log("fik",favInfoKeys);
-        // this.setState({favInfo: uFavArray, userKey: userKey, favInfoKeys:favInfoKeys});
+      let user = this.props.params.user;
+      let favInfoKey = localStorage.getItem("favInfoKey");
+      let uKey = localStorage.getItem("userKey");
+      let itemEvent = {
+        name: eventName,
+        date: date
+      };
+      //update item with event
+      Firebase.addEvent(user, uKey, favInfoKey, itemEvent).then((res)=>{
+          console.log(res);
+      })
 
     })
 

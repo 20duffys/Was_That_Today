@@ -22,6 +22,8 @@ class GiftList extends Component {
     console.log("to add Event");
   }
   handleEventsPage(favKey){
+    localStorage.setItem("favInfoKey", favKey);
+    localStorage.setItem("userKey", this.state.userKey);
     browserHistory.push(`/events/${this.props.params.user}`);
   }
 
@@ -30,11 +32,24 @@ class GiftList extends Component {
     let favInfo = this.state.favInfo;
     let user = this.props.params.user;
     let userKey = this.state.userKey;
+    let favKeys = this.state.favInfoKeys;
     let entry;
     let giftlist = this;
     console.log("FAVVVV INFFFOO", favInfo);
-    let favorite = this.state.favInfoKeys.map(function(favKey, index){
       entry = favInfo.map(function(item, index){
+        let favKey = favKeys[index];
+        let eventInfo;
+        //if an item has an event
+        if (item.event !== undefined){
+        eventInfo =
+          <div className="event-info">
+            {item.event.name}
+            {item.event.date}
+          </div>
+        }
+        else {
+        eventInfo = <div className="no-event">No Event found!</div>
+        }
         return (
           <div key={index}>
             <img src={item.image}/>
@@ -45,11 +60,12 @@ class GiftList extends Component {
             {item.links.map(function (site, index){
               return <div key={index}><a target="_blank" href={site}>Link# {index+1}</a></div>
             })}
+            {eventInfo}
             <DeleteItem user={user} userKey={userKey} favKey={favKey}/>
             <button onClick={(event) => giftlist.handleEventsPage(favKey)}>Add Event</button>
           </div>)
       })
-    })
+
 
     return entry;
   }

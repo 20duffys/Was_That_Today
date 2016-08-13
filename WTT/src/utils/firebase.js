@@ -66,6 +66,25 @@ export default {
       .then((response) => {
         return response.json();
   });
+},
+  addEvent(user, uKey, favInfoKey, itemEvent){
+    const fetchSettings = {
+      method: 'PATCH',
+      headers: new Headers ({
+        'Content-Type' : 'application/json'
+      }),
+      body: JSON.stringify({
+        name: itemEvent.name,
+        date: itemEvent.date
+      })
+    }
+
+    return fetch('https://wasthattoday.firebaseio.com/users/' + user + '/' + uKey + '/favoriteItems/' + favInfoKey +'/' + 'event.json', fetchSettings)
+      .then((response) => {
+        return response.json();
+    });
+
   }
+
 
 }
