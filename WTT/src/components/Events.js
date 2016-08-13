@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-bootstrap';
 import DatePicker from 'react-bootstrap-date-picker';
-import Firebase from '../utils/firebase.js'
+import Firebase from '../utils/firebase.js';
+import {browserHistory} from 'react-router';
 
 class Events extends Component {
   constructor(){
@@ -11,9 +12,6 @@ class Events extends Component {
       value: "",
       showModal: true
     }
-  }
-  close(event){
-    this.setState({showModal: false})
   }
 
   handleSubmit(event){
@@ -50,13 +48,14 @@ class Events extends Component {
       })
 
     })
-
+      //close Modal
+      browserHistory.push(`/giftlist/${this.props.params.user}`);
   }
   render(){
     return (
       <div className="event-modal">
-        <Modal show={this.state.showModal} onHide={(event)=>this.close(event)}>
-          <Modal.Header closeButton>
+        <Modal show={this.state.showModal}>
+          <Modal.Header>
             <Modal.Title>Event</Modal.Title>
           </Modal.Header>
             <Modal.Body>

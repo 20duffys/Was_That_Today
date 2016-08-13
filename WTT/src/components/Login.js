@@ -45,7 +45,7 @@ class Login extends Component {
     let username = this.state.username;
     let password = this.state.password;
     Firebase.findUser(username).then((res) => {
-    
+
       //only go to the page if the username value isn't null
       if(res !== null){
         //check if the user password matches what is typed

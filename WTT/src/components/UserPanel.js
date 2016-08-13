@@ -20,28 +20,8 @@ class UserPanel extends Component {
     browserHistory.push(`/search/${this.props.params.user}`);
   }
 
-  displayGiftList(user){
-    this.setState({ username: user});
-    console.log("UP,S",this.state);
-    browserHistory.push(`/giftlist/${this.props.params.user}`);
-  }
-
   displayFavorites(user){
-
-  //   Firebase.findUser(user).then((res) => {
-  //       let userInfo = [];
-  //       //convert array
-  //       for(let prop in res){
-  //         userInfo.push(res[prop]);
-  //       }
-  //
-  //       console.log(userInfo[0].favoriteItems);
-  //       this.setState({
-  //         favInfo: userInfo[0].favoriteItems
-  //       })
-       browserHistory.push(`/giftlist/${this.props.params.user}`);
-  //   })
-  //
+    browserHistory.push(`/giftlist/${this.props.params.user}`);
    }
 
   render(){

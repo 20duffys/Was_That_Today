@@ -17,6 +17,9 @@ class Search extends Component {
       }
   }
 
+  viewGiftList(event) {
+    browserHistory.push(`/giftlist/${this.props.params.user}`);
+  }
 
   productSearch(event) {
     event.preventDefault();
@@ -42,6 +45,7 @@ class Search extends Component {
         <form className="search-form" onSubmit={(event) => this.productSearch(event)}>
           <input id="search-box" type="text"></input>
           <button id="search-btn" type="submit">Search</button>
+          <button className="user-panel-btn" onClick={(event) => this.viewGiftList(event)}>View Gift List</button>
         </form>
         <ItemCard user={this.props.params.user} itemDetails={products}/>
       </div>
