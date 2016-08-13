@@ -9,6 +9,9 @@ import Firebase from '../utils/firebase.js'
 class Favorite extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      message: ""
+    }
   }
 
   addGift(item){
@@ -36,6 +39,9 @@ class Favorite extends Component {
     // //update account
       Firebase.addFavItem(favItem, this.props.user, ukey).then((json)=>{
         console.log("Saved!");
+        this.setState({
+          message: "Added to Gift List!"
+        })
       })
 
     })
@@ -48,6 +54,8 @@ class Favorite extends Component {
     return(
       <div>
         <button id="gift-list-btn" className='gift-list-btn' onClick={(event) => this.addGift(item)}>Save to Gift List</button>
+        <br/>
+        <div id="gift-message">{this.state.message}</div>
       </div>
     )
   }

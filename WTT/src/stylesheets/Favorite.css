@@ -21,3 +21,7 @@
 	position:relative;
 	top:1px;
 }
+
+#gift-message {
+	color: red;
+}

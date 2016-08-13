@@ -39,6 +39,11 @@
   height: 300px;
 }
 
+#event-info-style {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
 #view-btn {
   display: block ;
   margin: 0 auto;

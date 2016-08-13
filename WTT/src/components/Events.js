@@ -4,6 +4,7 @@ import { Modal } from 'react-bootstrap';
 import DatePicker from 'react-bootstrap-date-picker';
 import Firebase from '../utils/firebase.js';
 import {browserHistory} from 'react-router';
+import '../stylesheets/Events.css';
 
 class Events extends Component {
   constructor(){
@@ -55,16 +56,17 @@ class Events extends Component {
     return (
       <div className="event-modal">
         <Modal show={this.state.showModal}>
-          <Modal.Header>
-            <Modal.Title>Event</Modal.Title>
+          <Modal.Header id="modal-header">
+            <Modal.Title id="event-title">Event</Modal.Title>
           </Modal.Header>
             <Modal.Body>
-              <form onSubmit={(event)=>this.handleSubmit(event)}>
+              <form id="event-form" onSubmit={(event)=>this.handleSubmit(event)}>
                 <input id="event-name" type="text" placeholder="Event Name" ></input>
-                <div className="date-picker">
+                <div className="date-picker"><br/>
                   <DatePicker />
                 </div>
-                <button type="submit">Add</button>
+                <br/>
+                <button id="event-button" type="submit">Add</button>
               </form>
             </Modal.Body>
         </Modal>
