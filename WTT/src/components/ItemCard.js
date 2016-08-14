@@ -26,7 +26,7 @@ class ItemCard extends Component {
               {item.sitedetails.map(function (site, index){
                 return <div key={index}><a target="_blank" href={site.url}>Link# {index+1}</a></div>
               })}
-              { !guest ? <Favorite user={user} key={index} item={item}/> : ""}
+              { !guest ? <Favorite user={user} key={item.name} item={item}/> : ""}
             </div>
           )
         })}

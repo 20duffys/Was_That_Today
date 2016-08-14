@@ -9,7 +9,8 @@ class DeleteItem extends Component {
     console.log("userKey", userKey);
     console.log("favKey", favKey);
     Firebase.deleteItem(user, userKey, favKey).then((res) => {
-      location.reload();
+      location.reload(); 
+      console.log("DELETED!");
     })
   }
 

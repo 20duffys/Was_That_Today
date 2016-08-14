@@ -60,7 +60,7 @@ class GiftList extends Component {
               <h3>{item.name}</h3>
               <h4>${item.price}</h4>
               <h5>{item.links.map(function (site, index){
-                return <div key={index}><a target="_blank" href={site}>Link# {index+1}</a></div>
+                return <div key={index}><a target="_blank" href={site.url}>Link# {index+1}</a></div>
               })}</h5>
             </div>
             <div className="gift-event">

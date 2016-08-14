@@ -46,7 +46,7 @@ class Favorite extends Component {
   render() {
     let item = this.props.item;
     console.log(this.props.user);
-
+    console.log("NAMMME", item.name);
     return(
       <div>
         <button id="gift-list-btn" className='gift-list-btn' onClick={(event) => this.addGift(item)}>Save to Gift List</button>
