@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {browserHistory} from 'react-router';
 import ItemCard from './ItemCard';
 import axios from '../utils/helper.js';
-import "../stylesheets/Search.css"
+import "../stylesheets/Search.css";
 
 /*
   Written by Austin, edited by Joe
@@ -45,6 +45,7 @@ class Search extends Component {
     if (user ==="Guest") {
       guest = 1;
     }
+
     return(
       <div id="search-container">
         <form className="search-form" onSubmit={(event) => this.productSearch(event)}>
@@ -58,4 +59,4 @@ class Search extends Component {
   }
 }
 
-export default Search
+export default Search;

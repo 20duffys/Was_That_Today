@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
-import {browserHistory} from 'react-router'
+import { browserHistory } from 'react-router';
 
 class LoginHeader extends Component {
 
-  constructor(){
+  constructor() {
     super();
     this.state = {
       loginStatus: "Login"
     }
   }
 
-  handleLogin(){
+  handleLogin() {
     browserHistory.push("/login");
   }
-  render(){
+
+  render() {
     return (
       <button id="login-btn" className="loginButton" onClick={(event) =>this.handleLogin()}>{this.state.loginStatus}</button>
     )
   }
 }
 
-export default LoginHeader
+export default LoginHeader;

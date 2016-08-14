@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import Firebase from "../utils/firebase.js";
 import "../stylesheets/GiftList.css";
 import DeleteItem from "./DeleteItem.js";
-import Events from './Events.js';
 import {browserHistory} from 'react-router';
 
 class GiftList extends Component {
+
   constructor(props){
     super(props);
     this.state = {
@@ -14,6 +14,7 @@ class GiftList extends Component {
       userKey: ""
     }
   }
+
   deleteFav() {
     console.log("to Delete");
   }
@@ -21,12 +22,12 @@ class GiftList extends Component {
   addEvent() {
     console.log("to add Event");
   }
+
   handleEventsPage(favKey){
     localStorage.setItem("favInfoKey", favKey);
     localStorage.setItem("userKey", this.state.userKey);
     browserHistory.push(`/events/${this.props.params.user}`);
   }
-
 
   displayFavorites(){
     let favInfo = this.state.favInfo;
@@ -52,7 +53,9 @@ class GiftList extends Component {
         }
         return (
           <div className="gift-item" key={index}>
-            <div className="img-container"><img className="gift-img" src={item.image}/></div>
+            <div className="img-container">
+              <img alt="gift-img" className="gift-img" src={item.image}/>
+            </div>
             <div className="gift-info">
               <h3>{item.name}</h3>
               <h4>${item.price}</h4>
@@ -65,10 +68,9 @@ class GiftList extends Component {
               <div id="event-info-style">{eventInfo}</div>
               <div id="delete-btn"><DeleteItem  user={user} userKey={userKey} favKey={favKey}/></div>
             </div>
-          </div>)
+          </div>
+        )
       })
-
-
     return entry;
   }
 
@@ -80,7 +82,6 @@ class GiftList extends Component {
         let uFavArray = [];
         let userFavorites = res[userKey].favoriteItems;
 
-
         //extract dummy from userFavorites
         for(let prop in userFavorites){
           if(prop !== 'dummy'){
@@ -91,9 +92,7 @@ class GiftList extends Component {
         favInfoKeys = Object.keys(userFavorites).filter(elem => elem !== "dummy");
         console.log("fik",favInfoKeys);
         this.setState({favInfo: uFavArray, userKey: userKey, favInfoKeys:favInfoKeys});
-
     })
-
   }
 
   render(){
@@ -114,4 +113,4 @@ class GiftList extends Component {
   }
 }
 
-export default GiftList
+export default GiftList;

@@ -3,8 +3,8 @@ Written by Joe, edited by Austin and Sam
 */
 
 import React, { Component } from 'react';
-import {browserHistory} from 'react-router'
-import LoginHeader from "./LoginHeader"
+import { browserHistory } from 'react-router';
+import LoginHeader from "./LoginHeader";
 import '../stylesheets/Header.css';
 
 class Header extends Component {
@@ -18,7 +18,6 @@ class Header extends Component {
   }
 
   render(){
-
     return(
       <div>
         <header className='header'>

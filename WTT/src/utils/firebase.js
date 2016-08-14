@@ -1,6 +1,8 @@
 export default {
+
   addFavItem: function(favItem, user, key){
     console.log("FAVVV",favItem);
+
     const fetchSettings = {
       method: 'POST',
       headers: new Headers ({
@@ -13,9 +15,10 @@ export default {
           links: favItem.links
       })
     }
+
       console.log(fetchSettings);
 
-      return fetch('https://wasthattoday.firebaseio.com/users/' + user+ '/' + key + '/favoriteItems.json', fetchSettings)
+      return fetch('https://wasthattoday.firebaseio.com/users/' + user + '/' + key + '/favoriteItems.json', fetchSettings)
         .then((response) => {
           return response.json();
       });
@@ -42,6 +45,7 @@ export default {
       });
   },
 
+
   findUser: function(user){
     const fetchSettings = {
       method: 'GET',
@@ -55,6 +59,8 @@ export default {
           return response.json();
     });
   },
+
+
   deleteItem: function(user, userKey, favKey){
     const fetchSettings = {
       method: 'DELETE',
@@ -62,11 +68,14 @@ export default {
         'Content-Type' : 'application/json'
       })
     }
+
     return fetch('https://wasthattoday.firebaseio.com/users/' + user + '/' + userKey + '/favoriteItems/' + favKey + '.json', fetchSettings)
       .then((response) => {
         return response.json();
   });
 },
+
+
   addEvent(user, uKey, favInfoKey, itemEvent){
     const fetchSettings = {
       method: 'PATCH',
@@ -79,12 +88,9 @@ export default {
       })
     }
 
-    return fetch('https://wasthattoday.firebaseio.com/users/' + user + '/' + uKey + '/favoriteItems/' + favInfoKey +'/' + 'event.json', fetchSettings)
+    return fetch('https://wasthattoday.firebaseio.com/users/' + user + '/' + uKey + '/favoriteItems/' + favInfoKey + '/event.json', fetchSettings)
       .then((response) => {
         return response.json();
     });
-
   }
-
-
 }

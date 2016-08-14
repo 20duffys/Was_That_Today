@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 import { Modal } from 'react-bootstrap';
 import DatePicker from 'react-bootstrap-date-picker';
 import Firebase from '../utils/firebase.js';
-import {browserHistory} from 'react-router';
+import { browserHistory } from 'react-router';
 import '../stylesheets/Events.css';
 
 class Events extends Component {
+
   constructor(){
     super();
     this.state = {
@@ -25,10 +26,10 @@ class Events extends Component {
 
     //send it to firebase
     let user = this.props.params.user;
+
     Firebase.findUser(user).then((res) => {
 
       let userKey = Object.keys(res)[0];
-      let favInfoKeys = [];
       let uFavArray = [];
       let userFavorites = res[userKey].favoriteItems;
         //extract dummy from userFavorites
@@ -48,11 +49,11 @@ class Events extends Component {
       Firebase.addEvent(user, uKey, favInfoKey, itemEvent).then((res)=>{
           console.log(res);
       })
-
     })
       //close Modal
       browserHistory.push(`/giftlist/${this.props.params.user}`);
   }
+
   render(){
     return (
       <div className="event-modal">
@@ -76,4 +77,4 @@ class Events extends Component {
   }
 }
 
-export default Events
+export default Events;

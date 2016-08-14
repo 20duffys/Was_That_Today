@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {browserHistory} from 'react-router';
+import { browserHistory } from 'react-router';
 import Firebase from '../utils/firebase.js'
 import "../stylesheets/NewUser.css"
 import {FormGroup, ControlLabel, FormControl, HelpBlock, Button} from 'react-bootstrap';
@@ -51,7 +51,6 @@ class NewUser extends Component {
     Firebase.addNewUser(newUser).then((json)=>{
       console.log("Added!");
     })
-
   }
 
   handleNewUser(event){
@@ -75,11 +74,9 @@ class NewUser extends Component {
         this.setState({status: "Username already taken."});
       }
     })
-
   }
 
   render(){
-    let newUser = this;
     return(
       <div id='new-user-div'>
         <form onSubmit={(event) => this.handleNewUser(event)}>
@@ -116,4 +113,5 @@ class NewUser extends Component {
     )
   }
 }
-export default NewUser
+
+export default NewUser;

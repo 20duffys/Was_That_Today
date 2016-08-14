@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link, browserHistory} from 'react-router';
 import {FormGroup, ControlLabel, FormControl, HelpBlock, Button} from 'react-bootstrap';
-import Firebase from '../utils/firebase.js'
+import Firebase from '../utils/firebase.js';
 import "../stylesheets/Login.css";
 
 
@@ -9,6 +9,7 @@ import "../stylesheets/Login.css";
  Written by Austin, edited by Joe
 */
 class Login extends Component {
+
   constructor(){
     super();
     this.state = {
@@ -63,14 +64,12 @@ class Login extends Component {
         else {
         this.setState({status: "Password is incorrect"});
         }
-        }
+      }
 
       else {
         this.setState({status: "Invalid username or password"});
       }
     })
-
-
   }
 
   render(){
@@ -115,4 +114,4 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default Login;

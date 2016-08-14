@@ -1,13 +1,19 @@
 {
   "name": "WTT",
   "version": "0.0.1",
+  "engines": {
+    "node": "6.3.1",
+    "npm": "3.10.3"
+  },
   "private": true,
   "devDependencies": {
     "react-scripts": "0.2.1"
   },
   "dependencies": {
     "axios": "^0.13.1",
+    "body-parser": "^1.15.2",
     "cors": "^2.7.1",
+    "express": "^4.14.0",
     "firebase-token-generator": "^2.0.0",
     "react": "^15.2.1",
     "react-bootstrap": "^0.30.2",

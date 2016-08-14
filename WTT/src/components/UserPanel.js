@@ -1,11 +1,10 @@
 // By Sam Duffy edited By Austin and Joe
 import React, { Component } from 'react';
 import {Link, browserHistory} from 'react-router';
-import Firebase from '../utils/firebase.js';
-import GiftList from './GiftList';
 import '../stylesheets/UserPanel.css';
 
 class UserPanel extends Component {
+
   constructor() {
     super();
     this.state ={
@@ -44,4 +43,4 @@ class UserPanel extends Component {
   }
 }
 
-export default UserPanel
+export default UserPanel;

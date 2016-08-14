@@ -1,7 +1,3 @@
-/*
-Written by Joe and Austin and Sam(This file was done with the group)
-*/
-
 import React, { Component } from 'react';
 import '../stylesheets/Favorite.css';
 import Firebase from '../utils/firebase.js'

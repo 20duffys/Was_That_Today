@@ -4,7 +4,7 @@ Written by Joe and Austin
 
 import React, { Component } from 'react';
 import '../stylesheets/ItemCard.css';
-import Favorite from "./Favorite"
+import Favorite from "./Favorite";
 
 class ItemCard extends Component {
 
