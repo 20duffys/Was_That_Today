@@ -24,4 +24,6 @@
 
 #gift-message {
 	color: red;
+	font-weight: bolder;
+	margin: 10px;
 }

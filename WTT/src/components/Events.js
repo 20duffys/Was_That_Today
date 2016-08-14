@@ -20,6 +20,7 @@ class Events extends Component {
     //get date from modal
     let eventName = event.target.elements[0].value;
     let date = event.target.elements[1].value;
+    console.log(event.target.elements[1].value);
     date = date.substr(0, date.indexOf('T'));
 
     //send it to firebase
