@@ -31,6 +31,7 @@ class Search extends Component {
           responseData: res.data.results
         })
         console.log("state after search:", this.state);
+        localStorage.setItem("giftStatus", "false")
         browserHistory.push(`/search/itemcard/${this.props.params.user}`)
       })
     }

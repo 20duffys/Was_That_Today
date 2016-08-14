@@ -32,14 +32,13 @@ class Favorite extends Component {
       let ukey = Object.keys(json)[0]; //user key
       console.log(json[ukey]["favoriteItems"]);
 
-    // //update account
+    //update account
       Firebase.addFavItem(favItem, this.props.user, ukey).then((json)=>{
         console.log("Saved!");
         this.setState({
           message: "Added to Gift List!"
         })
       })
-
     })
 
    }
@@ -47,6 +46,7 @@ class Favorite extends Component {
   render() {
     let item = this.props.item;
     console.log(this.props.user);
+
     return(
       <div>
         <button id="gift-list-btn" className='gift-list-btn' onClick={(event) => this.addGift(item)}>Save to Gift List</button>
