@@ -1,7 +1,5 @@
 # Was That Today?
-Austin Hudson
-Joseph Sul
-Sam Duffy
+##### by Austin Hudson, Joseph Sul, and Sam Duffy
 
 ### Description
 This is a full-stack web app using a 3rd party web storage system and uses an API.
